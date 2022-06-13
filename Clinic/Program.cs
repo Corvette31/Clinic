@@ -10,11 +10,14 @@ namespace Clinic
             int receptionTime = 10;
             int waitingHours;
             int waitingMinutes;
+            int minutesPerHour = 60;
+            int waitingTime;
 
             Console.Write("Сколько человек в очереди впереди вас? :");
             peopleInLine = Convert.ToInt32(Console.ReadLine());
-            waitingHours = (peopleInLine * receptionTime) / 60;
-            waitingMinutes = (peopleInLine * receptionTime) % 60;
+            waitingTime = peopleInLine * receptionTime;
+            waitingHours = waitingTime / minutesPerHour;
+            waitingMinutes = waitingTime % minutesPerHour;
             Console.Write($"Вы должны отстоять в очереди {waitingHours} часа и {waitingMinutes} минут.");
         }
     }
